@@ -28,6 +28,12 @@ export const ThesisTracker = () => {
     });
   };
 
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, link: string) => {
+    if (link === "#") {
+      e.preventDefault(); // Prevent click if link is empty
+    }
+  };
+
   const [pipeline] = useState([
     {
       phase: "00",
@@ -200,6 +206,9 @@ export const ThesisTracker = () => {
                 </div>
                 <a 
                   href={step.driveLink} 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => handleLinkClick(e, step.driveLink)}
                   className={`w-full py-3 flex items-center justify-center gap-2 text-[11px] font-bold uppercase transition-all
                     ${step.driveLink === "#" ? "bg-zinc-100 text-zinc-400 cursor-not-allowed" : "bg-zinc-900 text-white active:scale-[0.98]"}`}
                 >
