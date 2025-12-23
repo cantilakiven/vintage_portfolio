@@ -1,0 +1,389 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 42 25% 94%;
+    --foreground: 30 10% 18%;
+
+    --card: 40 20% 97%;
+    --card-foreground: 30 10% 18%;
+
+    --popover: 40 20% 97%;
+    --popover-foreground: 30 10% 18%;
+
+    --primary: 28 45% 35%;
+    --primary-foreground: 40 20% 97%;
+
+    --secondary: 40 18% 88%;
+    --secondary-foreground: 30 10% 18%;
+
+    --muted: 40 15% 85%;
+    --muted-foreground: 30 8% 45%;
+
+    --accent: 28 35% 42%;
+    --accent-foreground: 40 20% 97%;
+
+    --destructive: 0 72% 45%;
+    --destructive-foreground: 40 20% 97%;
+
+    --border: 35 20% 75%;
+    --input: 35 15% 80%;
+    --ring: 28 45% 35%;
+
+    --radius: 0;
+
+    --link: 28 50% 32%;
+    --link-hover: 28 55% 22%;
+
+    --vintage-gold: 38 60% 55%;
+    --vintage-sepia: 30 25% 65%;
+    --paper-texture: 40 30% 92%;
+  }
+
+  .dark {
+    --background: 25 15% 10%;
+    --foreground: 38 20% 85%;
+
+    --card: 25 12% 14%;
+    --card-foreground: 38 20% 85%;
+
+    --popover: 25 12% 14%;
+    --popover-foreground: 38 20% 85%;
+
+    --primary: 38 55% 58%;
+    --primary-foreground: 25 15% 10%;
+
+    --secondary: 25 10% 18%;
+    --secondary-foreground: 38 20% 85%;
+
+    --muted: 25 8% 22%;
+    --muted-foreground: 38 15% 55%;
+
+    --accent: 38 45% 50%;
+    --accent-foreground: 25 15% 10%;
+
+    --destructive: 0 55% 45%;
+    --destructive-foreground: 38 20% 85%;
+
+    --border: 25 10% 25%;
+    --input: 25 10% 22%;
+    --ring: 38 55% 58%;
+
+    --link: 38 50% 60%;
+    --link-hover: 38 55% 72%;
+
+    --vintage-gold: 38 50% 50%;
+    --vintage-sepia: 30 20% 40%;
+    --paper-texture: 25 12% 12%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    font-size: 15px;
+    line-height: 1.75;
+    letter-spacing: 0.01em;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  h1 {
+    @apply text-2xl md:text-3xl;
+    color: hsl(var(--primary));
+  }
+
+  h2 {
+    @apply text-xl md:text-2xl pb-3 mb-6;
+    color: hsl(var(--primary));
+    border-bottom: 2px solid hsl(var(--border));
+    position: relative;
+  }
+
+  h2::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: hsl(var(--primary));
+  }
+
+  h3 {
+    @apply text-lg md:text-xl;
+    color: hsl(var(--foreground));
+  }
+
+  a {
+    color: hsl(var(--link));
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  a:hover {
+    color: hsl(var(--link-hover));
+    text-decoration: underline;
+  }
+
+  hr {
+    @apply border-t-2 border-border my-8;
+    border-style: double;
+  }
+
+  p {
+    @apply mb-4;
+  }
+}
+
+@layer utilities {
+  .section-box {
+    @apply border-2 border-border bg-card p-5 md:p-6 mb-6;
+    @apply transition-all duration-500 ease-out;
+    @apply hover:shadow-xl hover:border-primary/40;
+    position: relative;
+    background: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--paper-texture)) 100%);
+  }
+
+  .section-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.02;
+    pointer-events: none;
+  }
+
+  .sidebar-section {
+    @apply border-l-4 border-primary pl-4 mb-6;
+    @apply transition-all duration-300;
+    position: relative;
+  }
+
+  .sidebar-section::before {
+    content: '◆';
+    position: absolute;
+    left: -8px;
+    top: -2px;
+    font-size: 10px;
+    color: hsl(var(--primary));
+  }
+
+  .sidebar-link {
+    @apply block py-1.5 text-sm;
+    @apply transition-all duration-300 ease-out;
+    color: hsl(var(--link));
+    position: relative;
+  }
+
+  .sidebar-link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background: hsl(var(--primary));
+    transition: width 0.3s ease;
+  }
+
+  .sidebar-link:hover {
+    @apply pl-2;
+    color: hsl(var(--link-hover));
+  }
+
+  .sidebar-link:hover::before {
+    width: 100%;
+  }
+
+  .info-table td {
+    @apply py-2 pr-6 align-top;
+    transition: all 0.3s ease;
+  }
+
+  .info-table tr {
+    @apply transition-all duration-300;
+  }
+
+  .info-table tr:hover {
+    background: hsl(var(--secondary) / 0.5);
+  }
+
+  .info-table td:first-child {
+    @apply font-medium whitespace-nowrap;
+    font-family: 'Playfair Display', Georgia, serif;
+    color: hsl(var(--muted-foreground));
+    letter-spacing: 0.03em;
+  }
+
+  /* Staggered animation delays */
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+  .stagger-6 { animation-delay: 0.6s; }
+
+  /* Elegant hover transitions */
+  .hover-lift {
+    @apply transition-all duration-400 ease-out;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 
+      0 10px 40px -10px hsl(var(--primary) / 0.2),
+      0 4px 12px -4px hsl(var(--foreground) / 0.1);
+  }
+
+  .hover-glow {
+    @apply transition-all duration-400;
+  }
+
+  .hover-glow:hover {
+    box-shadow: 
+      0 0 30px hsl(var(--primary) / 0.15),
+      inset 0 0 20px hsl(var(--primary) / 0.03);
+  }
+
+  /* Vintage decorative elements */
+  .vintage-divider {
+    @apply flex items-center justify-center my-8;
+  }
+
+  .vintage-divider::before,
+  .vintage-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(var(--border)), transparent);
+  }
+
+  .vintage-divider span {
+    @apply px-4 text-primary;
+    font-size: 1.2rem;
+  }
+
+  /* Focus states for inputs */
+  .input-elegant {
+    @apply transition-all duration-300 ease-out;
+    background: hsl(var(--background));
+    border: 2px solid hsl(var(--border));
+  }
+
+  .input-elegant:focus {
+    border-color: hsl(var(--primary));
+    box-shadow: 
+      0 0 0 3px hsl(var(--primary) / 0.1),
+      0 4px 12px hsl(var(--primary) / 0.08);
+  }
+
+  /* Vintage button style */
+  .btn-vintage {
+    @apply px-8 py-3 font-medium tracking-wide;
+    @apply transition-all duration-400 ease-out;
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    border: 2px solid hsl(var(--primary));
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-vintage::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, hsl(var(--primary-foreground) / 0.2), transparent);
+    transition: left 0.5s ease;
+  }
+
+  .btn-vintage:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px hsl(var(--primary) / 0.3);
+  }
+
+  .btn-vintage:hover::before {
+    left: 100%;
+  }
+
+  .btn-vintage:active {
+    transform: translateY(0);
+  }
+
+  /* Profile image vintage frame */
+  .vintage-frame {
+    position: relative;
+    @apply transition-all duration-500;
+  }
+
+  .vintage-frame::before {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border: 2px solid hsl(var(--primary) / 0.3);
+    @apply transition-all duration-400;
+  }
+
+  .vintage-frame::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border: 1px solid hsl(var(--border));
+    @apply transition-all duration-400;
+  }
+
+  .vintage-frame:hover::before {
+    inset: -12px;
+    border-color: hsl(var(--primary) / 0.5);
+  }
+
+  .vintage-frame:hover::after {
+    inset: -6px;
+  }
+
+  /* Ornamental corner decorations */
+  .ornament-corners {
+    position: relative;
+  }
+
+  .ornament-corners::before,
+  .ornament-corners::after {
+    content: '✦';
+    position: absolute;
+    font-size: 12px;
+    color: hsl(var(--primary) / 0.4);
+    transition: all 0.3s ease;
+  }
+
+  .ornament-corners::before {
+    top: -6px;
+    left: -6px;
+  }
+
+  .ornament-corners::after {
+    bottom: -6px;
+    right: -6px;
+  }
+
+  .ornament-corners:hover::before,
+  .ornament-corners:hover::after {
+    color: hsl(var(--primary));
+  }
+}
