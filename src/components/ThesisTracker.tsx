@@ -143,7 +143,7 @@ export const ThesisTracker = () => {
         <h2 className="text-xl font-black uppercase">Thesis_Log.sys</h2>
         <div className="mt-2 text-[10px] space-y-1 opacity-60">
             <p>Dataset: 3,240 / 10,000 (32.4%)</p>
-            <p>Accuracy Goal: 98%+</p>
+            <p>Accuracy Goal: 98%</p>
         </div>
         <div className="w-full h-3 bg-zinc-100 dark:bg-zinc-800 border border-zinc-900 mt-4">
           <div className="h-full bg-zinc-900 dark:bg-zinc-100 transition-all duration-1000" style={{ width: '32.4%' }}></div>
