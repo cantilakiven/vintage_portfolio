@@ -94,7 +94,7 @@ const Index = () => {
               <h1 className="text-lg md:text-xl font-bold tracking-tighter uppercase">
                 Kiven Cantila
                 <span className="hidden sm:inline text-muted-foreground font-normal ml-3 text-sm opacity-60">
-                  root@portfolio:~
+                  Portfolio
                 </span>
               </h1>
             </div>
