@@ -64,7 +64,7 @@ export const ProfileTab = ({ onNavigate }: ProfileTabProps) => {
           <p className="first-letter:text-5xl first-letter:font-bold first-letter:text-primary first-letter:float-left first-letter:mr-3 first-letter:leading-none">
             My name is <strong className="text-primary">Kiven Cantila</strong>. 
             I am an undergrad in <strong>Bachelor of Science in Computer Engineering</strong> at Jose Rizal Memorial State University.
-            Due to financial challenges, I paused my formal studies, but my passion for technology remains my driving force.
+            Due to life challenges, I paused my studies, but my passion for technology remains my driving force.
             In 2023, I have been developed an interest learning the basic's of web development, specializing in creating responsive and aesthetically pleasing web applications.
           </p>
           <p>
