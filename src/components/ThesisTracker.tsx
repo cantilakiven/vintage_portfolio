@@ -71,7 +71,7 @@ export const ThesisTracker = () => {
       status: "ITERATING",
       icon: <BarChart2 className="text-green-500" size={20} />,
       description: "Training YOLOv11 weights. Current iteration shows high precision on 'Dirty', 'Crack', 'Rotten', 'Small', 'Medium', and 'Large' egg classification. But when we convert to TFLite, accuracy drops significantly which is not good.",
-      youtubeId: "D4Y-RG1bZIo",
+      youtubeId: "iD8mk4BRpd4",
       metrics: { mAP: "0.94", Acc: "92%" },
       driveLink: "https://drive.google.com/drive/folders/1DHijKZRQN24GVBPrbh-EFCBs2qy03svT?usp=sharing",
       linkText: "Train Matrics|Weights",
