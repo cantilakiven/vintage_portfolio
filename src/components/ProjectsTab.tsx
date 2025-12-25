@@ -205,7 +205,7 @@ export const ProjectsTab = () => {
       </div>
 
       <div className="vintage-divider mt-12 py-4 flex justify-center border-t border-border/30">
-        <span className="text-primary/40"> 🏴‍☠️🏴‍☠️🏴‍☠️ </span>
+        <span className="text-primary/40"> + + + </span>
       </div>
 
       <p className="text-xs text-muted-foreground italic text-center mt-4 pb-10">
