@@ -2,11 +2,13 @@ import { useState, useEffect } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { ExternalLink, Github, AlertCircle, X, Info, Download, ArrowUp } from "lucide-react";
 
+// --- INTERFACE ---
 export interface ProjectData {
   title: string;
   shortDescription: string;
   fullDescription: string;
   technologies: string[];
+  imageLink?: string; // New field for your image
   previewLink?: string;
   codeLink?: string;
   videoLink?: string;
@@ -15,6 +17,18 @@ export interface ProjectData {
   isCodeAvailable: boolean;
 }
 
+// --- HELPER TO CONVERT GOOGLE DRIVE LINKS TO DIRECT IMAGE URLS ---
+const getDirectDriveLink = (url: string | undefined): string => {
+  if (!url) return "";
+  if (url.includes("drive.google.com")) {
+    // Extracts the ID from drive.google.com/file/d/[ID]/view or drive.google.com/open?id=[ID]
+    const id = url.split("/d/")[1]?.split("/")[0] || url.split("id=")[1]?.split("&")[0];
+    return id ? `https://drive.google.com/uc?export=view&id=${id}` : url;
+  }
+  return url;
+};
+
+// --- DATA ---
 const projects: ProjectData[] = [
   {
     title: "Point of Sale System",
@@ -33,6 +47,7 @@ Key features include:
 • Can work offline and sync data when online
 • Can be use for up to 5 cashiers simultaneously using local network`,
     technologies: ["React", "TypeScript", "Tailwind CSS", "SQL", "Supabase"],
+    imageLink: "https://i.ibb.co/PG583Wrf/Screenshot-2025-12-26-233305.png", // Example: https://drive.google.com/file/d/xxxx/view
     previewLink: "#",
     codeLink: "https://github.com/cantilakiven",
     downloadLink: "https://drive.google.com/file/d/1VW8AoW5G3jn_Fe5HRCl3eBF_TYDNjoEp/view?usp=sharing/",
@@ -53,6 +68,7 @@ Features include:
 • Data persistence using local storage
 • Clean, intuitive user interface`,
     technologies: ["React", "Vite", "TypeScript", "Tailwind CSS"],
+    imageLink: "https://i.ibb.co/cc1j96tx/Screenshot-2025-12-26-233049.png", 
     previewLink: "https://task-manager-mocha-xi.vercel.app/",
     codeLink: "https://github.com/cantilakiven/TaskManager.git",
     downloadLink: "https://drive.google.com/file/d/17ZAX23U7kflTAZKfYoW3loCFUaGzfV01/view?usp=sharing",
@@ -74,6 +90,7 @@ Features include:
 • Generate sales reports
 • Simple user interface for store admin and client's`,
     technologies: ["Flask", "HTML5", "Bootstrap", "SQLite"],
+    imageLink: "https://i.ibb.co/XZQ23gTP/Sari-sari-store.webp", 
     previewLink: "https://sari-sari.onrender.com/",
     codeLink: "https://github.com/cantilakiven/Sari-Sari-Store-Management.git",
     downloadLink: "https://drive.google.com/file/d/1wJtbahPST1-KPJ45tRHtEoJT4VO4UfYx/view?usp=sharing",
@@ -93,6 +110,7 @@ Features include:
 • Downloadable React package for hosting
 • User-friendly interface`,
     technologies: ["React", "Vite", "TypeScript", "Tailwind CSS"],
+    imageLink: "https://i.ibb.co/nqH0wHYN/react-builder.webp", 
     previewLink: "https://react-gen.pages.dev/",
     codeLink: "https://github.com/kiven-mailbox/React_Gen.git",
     downloadLink: "",
@@ -116,6 +134,7 @@ Features include:
 • Can use Barcode Scanner for faster sales processing
 • User-friendly interface`,
     technologies: ["React", "Vite", "TypeScript", "Tailwind CSS"],
+    imageLink: "https://i.ibb.co/JR60C2Vp/POS-Store.webp", 
     previewLink: "https://demo-of-sales.pages.dev/",
     codeLink: "https://github.com/cantilakiven/POS_Local-Storage.git",
     downloadLink: "https://drive.google.com/file/d/1VXD5FOKqyMmqxdKYWruO74_NpRJC3Jyh/view?usp=sharing",
@@ -124,6 +143,7 @@ Features include:
   },
 ];
 
+// --- MAIN COMPONENT ---
 export const ProjectsTab = () => {
   const [selectedProject, setSelectedProject] = useState<ProjectData | null>(null);
   const [showScrollBtn, setShowScrollBtn] = useState(false);
@@ -144,32 +164,16 @@ export const ProjectsTab = () => {
   return (
     <div className="animate-fade-in relative z-10 -mt-4 sm:mt-0 max-w-2xl mx-auto">
       
-      {/* IMPROVED BACK TO TOP 
-          Desktop: Anchored precisely to the right of your content column
-          Mobile: Fixed to corner
-      */}
       {showScrollBtn && (
-        <>
-          {/* Desktop Version: Stays with the column */}
-          <div className="hidden lg:block absolute -right-20 top-0 h-full">
-            <button 
-              onClick={scrollToTop}
-              className="sticky top-[85vh] z-50 p-4 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.3)] border-2 border-zinc-900 dark:border-zinc-100 hover:-translate-y-1 active:translate-y-0 transition-all flex flex-col items-center gap-0.5 group"
-            >
-              <ArrowUp size={20} className="group-hover:scale-110 transition-transform" />
-              <span className="text-[8px] font-black uppercase tracking-tighter">TOP</span>
-            </button>
-          </div>
-
-          {/* Mobile Version: Corner Fixed */}
-          {/* <button 
+        <div className="hidden lg:block absolute -right-20 top-0 h-full">
+          <button 
             onClick={scrollToTop}
-            className="lg:hidden fixed bottom-6 right-6 z-50 p-3 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-black shadow-[3px_3px_0px_0px_rgba(0,0,0,0.3)] border-2 border-zinc-900 dark:border-zinc-100 active:scale-95 transition-all flex flex-col items-center gap-0.5"
+            className="sticky top-[85vh] z-50 p-4 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.3)] border-2 border-zinc-900 dark:border-zinc-100 hover:-translate-y-1 active:translate-y-0 transition-all flex flex-col items-center gap-0.5 group"
           >
-            <ArrowUp size={16} />
-            <span className="text-[7px] font-black uppercase">TOP</span>
-          </button> */}
-        </>
+            <ArrowUp size={20} className="group-hover:scale-110 transition-transform" />
+            <span className="text-[8px] font-black uppercase tracking-tighter">TOP</span>
+          </button>
+        </div>
       )}
 
       <h2 className="text-xl font-serif text-primary font-bold mb-4">Projects</h2>
@@ -186,6 +190,18 @@ export const ProjectsTab = () => {
             style={{ animationDelay: `${0.15 + index * 0.1}s` }}
             onClick={() => setSelectedProject(project)}
           >
+            {/* IMAGE IN TAB VIEW */}
+            {project.imageLink && (
+              <div className="w-full h-48 mb-4 overflow-hidden rounded-lg border border-border/50 bg-muted">
+                <img 
+                  src={getDirectDriveLink(project.imageLink)} 
+                  alt={project.title} 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  onError={(e) => { (e.target as HTMLImageElement).src = "https://placehold.co/600x400?text=Preview+Loading..."; }}
+                />
+              </div>
+            )}
+
             <h3 className="font-serif text-lg text-primary group-hover:underline transition-colors">
               {project.title}
             </h3>
@@ -208,10 +224,6 @@ export const ProjectsTab = () => {
         <span className="text-primary/40"> + + + </span>
       </div>
 
-      <p className="text-xs text-muted-foreground italic text-center mt-4 pb-10">
-        More projects coming soon as I continue to develop my skills.
-      </p>
-
       <ProjectDetailModal
         project={selectedProject}
         open={selectedProject !== null}
@@ -222,7 +234,6 @@ export const ProjectsTab = () => {
 };
 
 // --- MODAL COMPONENT ---
-
 interface ProjectDetailModalProps {
   project: ProjectData | null;
   open: boolean;
@@ -275,6 +286,18 @@ export const ProjectDetailModal = ({ project, open, onClose }: ProjectDetailModa
           <DialogHeader>
             <DialogTitle className="font-serif text-2xl text-primary">{project.title}</DialogTitle>
           </DialogHeader>
+
+          {/* IMAGE IN MODAL VIEW */}
+          {project.imageLink && (
+            <div className="rounded-lg overflow-hidden border border-border/50 bg-muted aspect-video">
+              <img 
+                src={getDirectDriveLink(project.imageLink)} 
+                alt={project.title} 
+                className="w-full h-full object-cover"
+                onError={(e) => { (e.target as HTMLImageElement).src = "https://placehold.co/600x400?text=Image+Unavailable"; }}
+              />
+            </div>
+          )}
 
           {youtubeEmbedUrl && (
             <div className="rounded-lg overflow-hidden border border-border/50 bg-black aspect-video">
