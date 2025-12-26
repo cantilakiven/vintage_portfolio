@@ -71,7 +71,7 @@ Features include:
 • Mark tasks as complete
 • Filter tasks by status
 • Data persistence using local storage
-• Clean, intuitive user interface`,technologies:["React","Vite","TypeScript","Tailwind CSS"],previewLink:"#",codeLink:"https://github.com/cantilakiven/TaskManager.git",downloadLink:"https://drive.google.com/file/d/17ZAX23U7kflTAZKfYoW3loCFUaGzfV01/view?usp=sharing",isPreviewAvailable:!1,isCodeAvailable:!0},{title:"Sari Sari Store Inventory System",shortDescription:"A simple inventory management system for a sari-sari store.",fullDescription:`A simple inventory management system designed for a sari-sari store to track products, sales, and stock levels.
+• Clean, intuitive user interface`,technologies:["React","Vite","TypeScript","Tailwind CSS"],previewLink:"https://task-manager-mocha-xi.vercel.app/",codeLink:"https://github.com/cantilakiven/TaskManager.git",downloadLink:"https://drive.google.com/file/d/17ZAX23U7kflTAZKfYoW3loCFUaGzfV01/view?usp=sharing",isPreviewAvailable:!0,isCodeAvailable:!0},{title:"Sari Sari Store Inventory System",shortDescription:"A simple inventory management system for a sari-sari store.",fullDescription:`A simple inventory management system designed for a sari-sari store to track products, sales, and stock levels.
 
 This project is under development and aims to provide a user-friendly interface for store owners to manage their inventory effectively.
 It's not completed yet and still a work in progress.
