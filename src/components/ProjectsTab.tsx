@@ -53,10 +53,10 @@ Features include:
 • Data persistence using local storage
 • Clean, intuitive user interface`,
     technologies: ["React", "Vite", "TypeScript", "Tailwind CSS"],
-    previewLink: "#",
+    previewLink: "https://task-manager-mocha-xi.vercel.app/",
     codeLink: "https://github.com/cantilakiven/TaskManager.git",
     downloadLink: "https://drive.google.com/file/d/17ZAX23U7kflTAZKfYoW3loCFUaGzfV01/view?usp=sharing",
-    isPreviewAvailable: false,
+    isPreviewAvailable: true,
     isCodeAvailable: true,
   },
   {
