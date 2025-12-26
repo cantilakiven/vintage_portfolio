@@ -36,6 +36,7 @@ const projects: ProjectData[] = [
     fullDescription: `A point of sale system for small to medium businesses to manage sales and inventory Online and Offline.
 
 Built with modern technologies React and TypeScript, it features a clean, aesthetic that prioritizes readability and user experience.
+Note: Download the POS to try the demo use, Available in the download link exe file, the file is safe to download. Use the Cloud and select offline, you can use it wherever you want its ready to go, if you have some technical problems feel free to reach me in the contact tab and send me a message.
 
 Key features include:
 • Admin and cashier roles with distinct access levels
@@ -50,7 +51,7 @@ Key features include:
     imageLink: "https://i.ibb.co/PG583Wrf/Screenshot-2025-12-26-233305.png", // Example: https://drive.google.com/file/d/xxxx/view
     previewLink: "#",
     codeLink: "https://github.com/cantilakiven",
-    downloadLink: "https://drive.google.com/file/d/1VW8AoW5G3jn_Fe5HRCl3eBF_TYDNjoEp/view?usp=sharing/",
+    downloadLink: "https://drive.google.com/file/d/1fS13pOQMXkCZvzew5-XaGeXpoXlN5VA8/view?usp=sharing",
     isPreviewAvailable: false,
     isCodeAvailable: false,
   },
