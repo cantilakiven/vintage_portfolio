@@ -76,26 +76,31 @@ export const ContactTab = () => {
         {/* Contact Info */}
         <div className="flex-1 opacity-0 animate-fade-in-up stagger-2">
           <h3 className="font-serif text-primary mb-5 text-lg tracking-wide">Contact Information</h3>
-          <div className="section-box ornament-corners hover-glow">
-            <table className="info-table">
+          <div className="section-box ornament-corners hover-glow overflow-hidden">
+            <table className="info-table w-full table-fixed">
               <tbody>
                 <tr className="border-b border-border/40">
-                  <td className="py-3">Email:</td>
-                  <td className="py-3">
-                    <a href="mailto:cantilakiven.mailbox01@gmail.com" className="break-all hover:underline">cantilakiven.mailbox01@gmail.com</a>
+                  <td className="py-3 w-16 sm:w-24 shrink-0 align-top">Email:</td>
+                  <td className="py-3 break-words hyphens-auto">
+                    <a 
+                      href="mailto:cantilakiven.mailbox01@gmail.com" 
+                      className="text-xs sm:text-sm md:text-base hover:underline text-primary break-all block"
+                    >
+                      cantilakiven.mailbox01@gmail.com
+                    </a>
                   </td>
                 </tr>
                 <tr className="border-b border-border/40">
-                  <td className="py-3">Phone:</td>
-                  <td className="py-3">
+                  <td className="py-3 w-16 sm:w-24 shrink-0 align-top">Phone:</td>
+                  <td className="py-3 text-sm sm:text-base">
                     <span className="block sm:inline">+639816195241</span>
                     <span className="hidden sm:inline"> / </span>
                     <span className="block sm:inline">+639359193319</span>
                   </td>
                 </tr>
                 <tr>
-                  <td className="py-3">Location:</td>
-                  <td className="py-3">Zamboanga del Norte, Philippines</td>
+                  <td className="py-3 w-16 sm:w-24 shrink-0 align-top">Location:</td>
+                  <td className="py-3 text-sm sm:text-base">Zamboanga del Norte, Philippines</td>
                 </tr>
               </tbody>
             </table>
