@@ -16,6 +16,11 @@ export const SocialLinks = () => {
           Facebook
         </a>
       </li>
+      <li>
+        <a href="https://www.youtube.com/@cantila-t1x" target="_blank" rel="noopener noreferrer" className="hover:underline">
+          Youtube
+        </a>
+      </li>
     </ul>
   );
 };

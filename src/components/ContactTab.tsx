@@ -119,6 +119,11 @@ export const ContactTab = () => {
                   Facebook
                 </a>
               </li>
+              <li className="relative pl-5 transition-all duration-300 hover:translate-x-2 before:content-['◆'] before:absolute before:left-0 before:text-primary/50 before:text-xs before:top-1">
+                <a href="https://www.youtube.com/@cantila-t1x" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                  Youtube
+                </a>
+              </li>
             </ul>
           </div>
         </div>

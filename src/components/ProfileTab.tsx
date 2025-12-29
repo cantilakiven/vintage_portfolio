@@ -36,8 +36,8 @@ export const ProfileTab = ({ onNavigate }: ProfileTabProps) => {
 
   return (
     <div className="animate-fade-in -mt-4 sm:mt-0 max-w-4xl mx-auto">
-      {/* Overview Title */}
-      <h2 className="mb-6 text-center sm:text-left">
+      {/* Overview Title - Now hidden on mobile (hidden) and shown on small screens and up (sm:block) */}
+      <h2 className="mb-6 text-center sm:text-left hidden sm:block">
         <span className="inline-block border-b-2 border-vintage-gold/30 pb-1 text-2xl font-serif">Overview</span>
       </h2>
       
@@ -116,49 +116,6 @@ export const ProfileTab = ({ onNavigate }: ProfileTabProps) => {
         <span className="text-vintage-gold/50 text-xl">✦</span>
       </div>
 
-      {/* Personal Information Section */}
-      <h3 className="font-serif text-primary mb-4 text-lg tracking-wide flex items-center gap-2">
-        <span className="h-px w-8 bg-primary/30"></span>
-        Personal Information
-      </h3>
-      <div className="section-box ornament-corners bg-secondary/10 backdrop-blur-sm border border-border/50 p-1 mb-10">
-        <div className="bg-card/50 p-4 sm:p-6">
-          <table className="info-table w-full text-sm">
-            <tbody>
-              <tr className="border-b border-border/40">
-                <td className="py-4 text-muted-foreground uppercase tracking-tighter font-bold w-1/3">Name</td>
-                <td className="py-4 font-medium text-primary">Kiven Cantila <span className="text-[10px] opacity-50 block sm:inline ml-0 sm:ml-2">(Legal: Kiven Etol)</span></td>
-              </tr>
-              <tr className="border-b border-border/40">
-                <td className="py-4 text-muted-foreground uppercase tracking-tighter font-bold">Role</td>
-                <td className="py-4">Front-End Web Developer</td>
-              </tr>
-              <tr className="border-b border-border/40">
-                <td className="py-4 text-muted-foreground uppercase tracking-tighter font-bold">Email</td>
-                <td className="py-4">
-                  <a href="mailto:cantilakiven.mailbox01@gmail.com" className="hover:text-primary transition-colors break-all">cantilakiven.mailbox01@gmail.com</a>
-                </td>
-              </tr>
-              <tr className="border-b border-border/40">
-                <td className="py-4 text-muted-foreground uppercase tracking-tighter font-bold">Contact</td>
-                <td className="py-4 space-y-1">
-                  <span className="block">TNT +63 981 619 5241</span>
-                  <span className="block">TM  +63 935 919 3319</span>
-                </td>
-              </tr>
-              <tr>
-                <td className="py-4 text-muted-foreground uppercase tracking-tighter font-bold">Location</td>
-                <td className="py-4">Mutia Zamboanga del Norte, Philippines</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <h3 className="font-serif text-primary mb-6 text-lg tracking-wide text-center sm:text-left">Connect With Me</h3>
-      <div className="flex justify-center sm:justify-start">
-        <SocialLinks />
-      </div>
     </div>
   );
 };

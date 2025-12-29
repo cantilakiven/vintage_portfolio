@@ -62,6 +62,9 @@ const Index = () => {
           <a href="https://www.facebook.com/makemecum.yoti/" target="_blank" rel="noopener noreferrer" className="block py-1.5 px-3 text-muted-foreground hover:text-foreground transition-all underline decoration-zinc-300 dark:decoration-zinc-700">
             Facebook ↗
           </a>
+           <a href="https://www.youtube.com/@cantila-t1x" target="_blank" rel="noopener noreferrer" className="block py-1.5 px-3 text-muted-foreground hover:text-foreground transition-all underline decoration-zinc-300 dark:decoration-zinc-700">
+            Youtube ↗
+          </a>
         </div>
       </div>
 
@@ -146,7 +149,7 @@ const Index = () => {
       <footer className="border-t border-zinc-300 dark:border-zinc-800 py-8 mt-20">
         <div className="container mx-auto px-4 text-center">
           <p className="text-[10px] tracking-widest uppercase opacity-50">
-            © {new Date().getFullYear()} — Built for performance: <strong>KivenCantila</strong>
+            © {new Date().getFullYear()} — Built for Performance
           </p>
         </div>
       </footer>
