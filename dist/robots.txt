@@ -1,8 +1,11 @@
-# Allow all major search engines to crawl the site content
+# General Rules for all Search Engines
 User-agent: *
 Allow: /
+# This prevents bots from crawling your development or private folders if you have them
+Disallow: /node_modules/
+Disallow: /dist/
 
-# Specifically allow media bots to see images for snippets
+# Allow Image Bots to access your images for the Search Result Snippets
 User-agent: Googlebot-Image
 Allow: /
 
@@ -12,5 +15,5 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-# Link to your sitemap if you have one
+# Sitemap Location
 Sitemap: https://cantilakiven.vercel.app/sitemap.xml
