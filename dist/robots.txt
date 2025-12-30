@@ -1,7 +1,9 @@
-User-agent: Googlebot
+# Allow all major search engines to crawl the site content
+User-agent: *
 Allow: /
 
-User-agent: Bingbot
+# Specifically allow media bots to see images for snippets
+User-agent: Googlebot-Image
 Allow: /
 
 User-agent: Twitterbot
@@ -10,8 +12,5 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-User-agent: sitemap.html
-Allow: /
-
-User-agent: *
-Allow: /
+# Link to your sitemap if you have one
+Sitemap: https://cantilakiven.vercel.app/sitemap.xml
