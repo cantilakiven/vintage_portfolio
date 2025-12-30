@@ -45,6 +45,7 @@ const technicalSkills = [
 ];
 
 const professionalSkills = [
+  "Visual Studio Code",
   "Microsoft Office Suite",
   "Google Workspace",
   "Technical Support & Troubleshooting",
