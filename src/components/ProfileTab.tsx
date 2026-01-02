@@ -69,7 +69,7 @@ export const ProfileTab = ({ onNavigate }: ProfileTabProps) => {
           </p>
           <p>
             I focus on front-end development using <span className="font-semibold">HTML:5, CSS, Bootstrap, to React (Vite), TypeScript, and Tailwind CSS</span>. 
-            I am a firm believer in continuous learning and am constantly exploring modern frameworks to sharpen my craft.
+            I am in continuous learning and am constantly exploring modern frameworks to sharpen my craft and I adapt AI for better code and suggestions because we are now in a generation of Artificial Intelligence.
           </p>
           <p className="italic text-muted-foreground">
             Explore my work through my{" "}
